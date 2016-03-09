@@ -23,6 +23,7 @@
     "sinon": "~1.17.2"
   },
   "scripts": {
+    "env": "env",
     "test": "mocha test",
     "test-xreport": "mocha test --reporter=mocha-junit-reporter --reporter-options mochaFile=target/npm-reports/testsuite.xml",
     "bambooRelease": "npm version -- $bamboo_release_version && npm pack .",
