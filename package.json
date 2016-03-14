@@ -1,6 +1,6 @@
 {
   "name": "bower-nexus3-resolver",
-  "version": "1.0.1-0",
+  "version": "1.0.0-pre",
   "description": "A Bower resolver for integrating the Nexus 3 Repository Manager.",
   "license": "EPL-1.0",
   "keywords": [
@@ -31,7 +31,8 @@
     "setNextVersion": "npm version --no-git-tag-version -- $bamboo_release_nextVersion && git commit -a -m 'update in development version to: ' -m $bamboo_release_nextVersion",
     "bambooPostRelease": "npm run setNextVersion && git remote add repo $bamboo_repository_git_repositoryUrl && git push repo --follow-tags"
   },
-  "publishConfig": {
-    "registry": "http://localhost:8081/repository/npm-hosted/"
+  "repository" : {
+    "type": "git", 
+    "url": "https://github.com/sonatype/bower-nexus3-resolver.git"
   }
 }
