@@ -29,7 +29,7 @@
     "bambooRelease": "npm version -- $bamboo_release_version && npm pack .",
     "bambooPublish": "npm publish",
     "setNextVersion": "npm version --no-git-tag-version -- $bamboo_release_nextVersion && git commit -a -m 'update in development version to: ' -m $bamboo_release_nextVersion",
-    "bambooPostRelease": "npm run setNextVersion && git push origin --follow-tags"
+    "bambooPostRelease": "npm run setNextVersion"
   },
   "repository": {
     "type": "git",
