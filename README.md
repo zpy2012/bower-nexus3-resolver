@@ -28,7 +28,8 @@ Run the `npm pack` command to produce a .tgz containing the package contents.
 
 ## Installation
 
-See https://books.sonatype.com/nexus-book/3.0/reference/bower.html for instructions on how to install and configure this with Nexus 3.
+See https://help.sonatype.com/display/NXRM3/Bower+Repositories#BowerRepositories-InstallingBower for 
+instructions on how to install and configure this with NXRM3.
 
 ## License
 
