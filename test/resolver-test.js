@@ -517,4 +517,16 @@ describe('bower-nexus3-resolver', function() {
           });
     });
   });
+  
+  describe('_extractTarGz()', function() {
+    it('files are successfully extracted', function() {
+      return resolver._extractTarGz('test/test.tar.gz')
+          .then(function(result) {
+            assert(result);
+          })
+          .catch(function(error) {
+             assert.fail('Unexpected failure' + error);
+          });
+      });
+  });
 });
