@@ -13,6 +13,8 @@
 
 var NEXUS_REGEX = /^nexus\+/;
 
+var GIT_REGEX = /^git\:/;
+
 var fs = require('fs');
 var path = require('path');
 var request = require('request');
@@ -29,10 +31,14 @@ module.exports = function resolver(bower) {
   return {
 
     match: function(source) {
-      return NEXUS_REGEX.test(source);
+      return NEXUS_REGEX.test(source) || GIT_REGEX.test(source);
     },
 
     locate: function(source) {
+      if (GIT_REGEX.test(source)) {
+        var sourceArr = source.split("/");
+        source = "nexus+" + bower.config.registry.search[0] + "/" + sourceArr[sourceArr.length - 1].replace(".git", "");
+      }
       return source;
     },
 
@@ -97,7 +103,7 @@ module.exports = function resolver(bower) {
         hostname: parsedNexusUrl.hostname,
         port: parsedNexusUrl.port,
         pathname: parsedNexusUrl.path + '/' + parsedNexusUrl.repositoryName + '/' + parsedNexusUrl.packageName +
-          '/versions.json',
+            '/versions.json',
         auth: this._buildAuth()
       });
     },
@@ -116,7 +122,7 @@ module.exports = function resolver(bower) {
         hostname: parsedNexusUrl.hostname,
         port: parsedNexusUrl.port,
         pathname: parsedNexusUrl.path + '/' + parsedNexusUrl.repositoryName + '/' + parsedNexusUrl.packageName + '/' +
-          target + '/package.tar.gz',
+            target + '/package.tar.gz',
         auth: this._buildAuth()
       });
     },
@@ -196,8 +202,8 @@ module.exports = function resolver(bower) {
               }
             })
             .pipe(fs.createWriteStream(filename)).on('finish', function() {
-              resolve(filename);
-            });
+          resolve(filename);
+        });
       });
     },
 
