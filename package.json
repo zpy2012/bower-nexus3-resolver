@@ -11,28 +11,15 @@
     "src"
   ],
   "dependencies": {
-    "q": "~1.5.1",
-    "request": "~2.88.0",
-    "tar": "~4.4.8",
-    "tmp": "~0.0.33"
+    "q": "1.5.1",
+    "request": "2.88.0",
+    "tar": "4.4.8",
+    "tmp": "0.0.33"
   },
   "devDependencies": {
-    "mocha": "^6.1.3",
-    "mocha-junit-reporter": "~1.18.0",
-    "nock": "~10.0.6",
-    "sinon": "~7.2.7"
-  },
-  "scripts": {
-    "env": "env",
-    "test": "mocha test",
-    "test-xreport": "mocha test --reporter=mocha-junit-reporter --reporter-options mochaFile=target/npm-reports/testsuite.xml",
-    "bambooRelease": "npm version -- $bamboo_release_version && npm pack .",
-    "bambooPublish": "npm publish",
-    "setNextVersion": "npm version --no-git-tag-version -- $bamboo_release_nextVersion && git commit -a -m 'update in development version to: ' -m $bamboo_release_nextVersion",
-    "bambooPostRelease": "npm run setNextVersion"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/sonatype/bower-nexus3-resolver.git"
+    "mocha": "6.1.3",
+    "mocha-junit-reporter": "1.18.0",
+    "nock": "10.0.6",
+    "sinon": "7.2.7"
   }
 }
